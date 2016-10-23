@@ -1,0 +1,11 @@
+.DS_Store
+.tmp
+.git
+node_modules
+.settings
+*.log
+.idea
+src
+.editorconfig
+webpack*
+public
