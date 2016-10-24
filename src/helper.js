@@ -1,6 +1,3 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-
 const events = {
     'component': loadComponent
 };
@@ -30,15 +27,13 @@ function loadComponent(component) {
 }
 
 function showErrorCompoennt() {
-    const PreviewUnavailable = msg => (
-        <div>
-            <p>Preview Unavailable!</p>
-            <p>Seems like you are not returning a correct React element form the story.</p>
-            <p>Could you double check that?</p>
-        </div>
+    const PreviewUnavailable = msg => React.createElement(
+        "div",
+        null,
+        "Preview Unavailable! Seems like you are not returning a correct React element form the story."
     );
 
-    const previewUnavailable = (<PreviewUnavailable />);
+    const previewUnavailable = React.createElement(PreviewUnavailable, null);
     ReactDOM.render(previewUnavailable, preview);
 }
 
