@@ -11,12 +11,8 @@ window.addEventListener('message', event => {
 
 function loadComponent(component) {
 
-    if (typeof component.template !== 'function') {
-        return showErrorCompoennt();
-    }
-
     try {
-        ReactDOM.render(component.template, preview);
+        ReactDOM.render(eval(`(${decodeURI(component.template)})()`), preview);
     } catch (e) {
         console.log(e);
         showErrorCompoennt();
@@ -40,4 +36,3 @@ function showErrorCompoennt() {
 // If loaded in iFrame
 // Tell about it to SB
 window.parent.sb && window.parent.sb.contact();
-
