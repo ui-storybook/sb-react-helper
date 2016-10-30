@@ -2,7 +2,7 @@
   "name": "sb-react-helper",
   "description": "SB is the environment for developers that allow to esaly develop and support UI components with any framework.",
   "main": "dist/index.js",
-  "version": "0.1.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/ui-storybook/sb-react-helper"
