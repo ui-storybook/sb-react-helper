@@ -6,13 +6,15 @@ module.exports = {
     entry: './src/helper',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'index.js'
+        filename: 'index.js',
+        libraryTarget: "umd"
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
     },
     externals: {
-        react: "React"
+        react: 'umd react',
+        'react-dom': 'umd react-dom'
     },
     module: {
         loaders: [
