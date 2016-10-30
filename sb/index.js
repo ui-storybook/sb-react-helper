@@ -2,6 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../src/helper';
 
+if (module.hot) {
+    module.hot.accept();
+    window.parent.sb && window.parent.sb.contact();
+}
+
 // Remove this demo component
 import { Welcome } from './welcome/welcome';
 

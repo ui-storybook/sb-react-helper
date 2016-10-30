@@ -1,7 +1,6 @@
 import React from 'react';
 import './welcome.css';
 
-
 export const Welcome = () => (
   <div className="welcome__card">
     Hello there and welcome to SB!<br/>

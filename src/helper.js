@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 const events = {
@@ -12,17 +12,24 @@ window.addEventListener('message', event => {
     event.data && events[event.data.type].call(this, event.data.data);
 }, false);
 
-function loadComponent(component) {
+function loadComponent(entity) {
 
+    let component = window.parent.sb.getStory(entity);
+
+    if (component) {
+        renderComponent(component.template);
+    } else {
+        setTimeout(() => loadComponent(entity), 0);
+    }
+}
+
+function renderComponent(component) {
     try {
-        ReactDOM.render(eval(`(${decodeURI(component.template)})()`), preview);
+        ReactDOM.render(component(), preview);
     } catch (e) {
         console.log(e);
         showErrorCompoennt();
     }
-
-
-    return null;
 }
 
 function showErrorCompoennt() {
